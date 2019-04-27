@@ -26,7 +26,7 @@ module Codeship
   end
 
   def self.builds(organization_uuid, project_uuid)
-    @builds ||= MultiJson.load(API.get_builds(organization_uuid, project_uuid).body)
+    MultiJson.load(API.get_builds(organization_uuid, project_uuid).body)
   end
 
   class API
@@ -56,7 +56,7 @@ module Codeship
       def get_builds(organization_uuid, project_uuid)
         conn = connection
         conn.authorization :bearer, access_token
-        conn.get("v2/organizations/#{organization_uuid}/projects/#{project_uuid}")
+        conn.get("v2/organizations/#{organization_uuid}/projects/#{project_uuid}/builds")
       end
 
       def access_token
