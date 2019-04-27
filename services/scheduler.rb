@@ -1,9 +1,14 @@
-require 'rufus-scheduler'
+require "rufus-scheduler"
+require "./clients/codeship"
 
-scheduler = Rufus::Scheduler.new
+module Scheduler
+  def self.every(interval, job: Codeship)
+    scheduler = Rufus::Scheduler.new
 
-scheduler.every '3s' do
-  puts 'Hello... Rufus'
+    scheduler.every interval do
+      job.call
+    end
+
+    scheduler.join
+  end
 end
-
-scheduler.join
