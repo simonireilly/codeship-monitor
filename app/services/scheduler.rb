@@ -1,7 +1,7 @@
 require "rufus-scheduler"
 
-require "./services/persister"
-require "./clients/codeship"
+require ".app/services/persister"
+require ".app/clients/codeship"
 
 module Scheduler
   def self.every(interval, job: Codeship)
@@ -13,10 +13,7 @@ module Scheduler
       data = job.call
 
       data.each do |build|
-        Build.where(uuid: build["uuid"]).first_or_initialize.tap do |current|
-          current.update(build.except("links")) unless current.persisted?
-          current.update(finished_at: build["finished_at"]) if current.finished_at.nil?
-        end
+        Build.safe_update(build)
       end
     end
 

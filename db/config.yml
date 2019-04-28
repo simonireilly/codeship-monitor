@@ -8,3 +8,7 @@ default: &default
 development:
   <<: *default
   database: codeship_monitor_development
+
+development:
+  <<: *default
+  database: codeship_monitor_test

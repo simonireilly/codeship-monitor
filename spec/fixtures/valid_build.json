@@ -1,0 +1,19 @@
+{
+  "uuid": "e6e82b70-4bbb-0137-df1a-62016495630e",
+  "project_uuid": "b15246c0-19d0-0137-a0cb-3a07ab956201",
+  "project_id": 328502,
+  "organization_uuid": "93123080-d25d-0136-3abe-3a57b53733be",
+  "ref": "heads/issue/62_orm_adapter_pattern",
+  "commit_sha": "92b1d5a1bab6b160042231eb9b00afdef188f824",
+  "status": "success",
+  "username": "simonireilly",
+  "commit_message": "Test Grafana",
+  "finished_at": "2019-04-28T08:30:53.296Z",
+  "allocated_at": null,
+  "queued_at": "2019-04-28T08:26:19.667Z",
+  "links": {
+    "pipelines": "https://api.codeship.com/v2/organizations/93123080-d25d-0136-3abe-3a57b53733be/projects/b15246c0-19d0-0137-a0cb-3a07ab956201/builds/e6e82b70-4bbb-0137-df1a-62016495630e/pipelines"
+  },
+  "branch": "issue/62_orm_adapter_pattern",
+  "pr_number": null
+}

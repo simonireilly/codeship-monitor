@@ -1,4 +1,5 @@
 require 'webmock/rspec'
+require './app/services/persister'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -10,4 +11,6 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  connect(env: "test")
 end
