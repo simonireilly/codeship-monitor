@@ -5,8 +5,8 @@ def db_configuration
   YAML.load(File.read(db_configuration_file))
 end
 
-def connect(env: "development")
-  ActiveRecord::Base.establish_connection(db_configuration["development"])
+def connect(environment: "development")
+  ActiveRecord::Base.establish_connection(db_configuration[environment])
 end
 
 connect

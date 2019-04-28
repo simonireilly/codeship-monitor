@@ -9,6 +9,6 @@ development:
   <<: *default
   database: codeship_monitor_development
 
-development:
+test:
   <<: *default
   database: codeship_monitor_test
