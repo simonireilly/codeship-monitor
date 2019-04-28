@@ -9,6 +9,7 @@ module Codeship
     organizations.each do |organization|
       projects(organization["uuid"]).each do |project|
         build_data << builds(organization["uuid"], project["uuid"])
+          .map { |build| build.merge({ "project_name": project["name"]}) }
       end
     end
     build_data.flatten!

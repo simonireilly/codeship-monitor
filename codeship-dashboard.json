@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "DS_CODESHIP_DATA",
-      "label": "CodeShip Data",
+      "label": "Codeship Data",
       "description": "",
       "type": "datasource",
       "pluginId": "postgres",
@@ -56,12 +56,102 @@
       "datasource": "${DS_CODESHIP_DATA}",
       "fill": 1,
       "gridPos": {
-        "h": 10,
-        "w": 23,
+        "h": 21,
+        "w": 15,
         "x": 0,
         "y": 0
       },
       "id": 2,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "format": "time_series",
+          "hide": false,
+          "rawSql": "SELECT\n  queued_at as time,\n  concat_ws ('=> ', project_name, branch),\n  extract(epoch from (finished_at::timestamp - queued_at::timestamp)) as age\nFROM\n  builds\n",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Codeship All Builds by Branch",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 1,
+          "format": "s",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "dateTimeAsIso",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_CODESHIP_DATA}",
+      "fill": 1,
+      "gridPos": {
+        "h": 21,
+        "w": 9,
+        "x": 15,
+        "y": 0
+      },
+      "id": 3,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -71,6 +161,7 @@
         "min": true,
         "rightSide": true,
         "show": true,
+        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -91,8 +182,8 @@
           "alias": "",
           "format": "time_series",
           "hide": false,
-          "rawSql": "SELECT\n  queued_at as time,\n  branch,\n  extract(epoch from (finished_at::timestamp - queued_at::timestamp)) as age\nFROM\n  builds\n",
-          "refId": "A"
+          "rawSql": "SELECT\n  queued_at as time,\n  project_name,\n  extract(epoch from (finished_at::timestamp - queued_at::timestamp)) as age\nFROM\n  builds",
+          "refId": "B"
         }
       ],
       "thresholds": [],
@@ -146,7 +237,7 @@
     "list": []
   },
   "time": {
-    "from": "now-1y",
+    "from": "now-30d",
     "to": "now"
   },
   "timepicker": {
@@ -175,7 +266,7 @@
     ]
   },
   "timezone": "",
-  "title": "Codeship Monitor",
-  "uid": "0adz4fzWz",
-  "version": 6
+  "title": "Codeship Monitor Copy",
+  "uid": "m_csfBkZk",
+  "version": 1
 }
