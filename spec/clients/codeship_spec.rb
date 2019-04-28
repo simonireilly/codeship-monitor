@@ -1,4 +1,4 @@
-require "./clients/codeship"
+require "./app/clients/codeship"
 
 RSpec.describe Codeship do
   it "has a base endpoint" do

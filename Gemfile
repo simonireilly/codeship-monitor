@@ -13,4 +13,8 @@ gem 'activerecord', '~> 5.2', '>= 5.2.3'
 gem 'standalone_migrations', '~> 5.2', '>= 5.2.7'
 gem 'pg', '~> 0.18'
 gem "postgresql", "~> 1.0"
-gem "rspec", "~> 3.8"
+
+group :test do
+  gem "rspec", "~> 3.8"
+  gem 'webmock', '~> 3.5', '>= 3.5.1'
+end
