@@ -3,12 +3,8 @@ default: &default
   encoding: unicode
   username: postgres
   pool: 5
-  host: localhost
+  host: db
 
 development:
   <<: *default
   database: codeship_monitor_development
-
-test:
-  <<: *default
-  database: codeship_monitor_test

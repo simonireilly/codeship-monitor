@@ -1,11 +1,10 @@
-require "faraday"
 require 'multi_json'
 
 module Codeship
   require_relative "codeship/api"
   ENDPOINT = "https://api.codeship.com"
 
-  def self.build_data
+  def self.call
     build_data = []
     organizations.each do |organization|
       projects(organization["uuid"]).each do |project|

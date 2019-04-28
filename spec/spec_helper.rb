@@ -12,5 +12,5 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  connect(environment: "test")
+  connect(environment: "test", host: "localhost")
 end

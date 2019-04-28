@@ -1,5 +1,5 @@
 require "spec_helper"
-require "./app/clients/codeship"
+require "./app/clients/codeship/api"
 
 RSpec.describe Codeship do
   it "has a base endpoint" do

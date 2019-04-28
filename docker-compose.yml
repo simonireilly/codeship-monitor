@@ -6,6 +6,8 @@ services:
     command: bash -c 'bundle exec rake db:setup && bundle exec ruby start.rb'
     volumes:
       - .:/myapp
+    environment:
+      - DB_HOST="db"
     depends_on:
      - db
 

@@ -1,7 +1,8 @@
 require "rufus-scheduler"
 
-require ".app/services/persister"
-require ".app/clients/codeship"
+require "./app/services/persister"
+require "./app/clients/codeship"
+require "./app/models/build"
 
 module Scheduler
   def self.every(interval, job: Codeship)

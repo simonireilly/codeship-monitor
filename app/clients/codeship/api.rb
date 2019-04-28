@@ -1,5 +1,8 @@
+
 module Codeship
   class API
+    require "faraday"
+
     class << self
       def connection
         @connection ||= Faraday.new(
@@ -8,7 +11,7 @@ module Codeship
             "Content-Type" => 'application/json',
             "Accept" => 'application/json'
           }
-          )
+        )
       end
 
       def auth
