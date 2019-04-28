@@ -5,16 +5,13 @@ module Codeship
   ENDPOINT = "https://api.codeship.com"
 
   def self.call
-    puts "Puts all the things"
-    # Auth
+    build_data = []
     organizations.each do |organization|
       projects(organization["uuid"]).each do |project|
-        pp builds(organization["uuid"], project["uuid"])
+        build_data << builds(organization["uuid"], project["uuid"])
       end
     end
-    # Get Projects
-    # Get All Builds
-    # Update CSV
+    build_data.flatten!
   end
 
   def self.organizations
@@ -26,7 +23,7 @@ module Codeship
   end
 
   def self.builds(organization_uuid, project_uuid)
-    MultiJson.load(API.get_builds(organization_uuid, project_uuid).body)
+    MultiJson.load(API.get_builds(organization_uuid, project_uuid).body).dig("builds")
   end
 
   class API
