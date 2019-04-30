@@ -3,14 +3,18 @@ services:
 
   web:
     build: .
-    command: bash -c 'bundle exec rake db:setup && bundle exec ruby start.rb'
+    command: bash -c 'bundle install && bundle exec rake db:setup && bundle exec ruby start.rb'
     volumes:
       - .:/myapp
+    env_file:
+      - .env
     depends_on:
      - db
 
   db:
     image: postgres
+    ports:
+      - 5432
     volumes:
       - './tmp/db:/var/lib/postgresql/data'
 

@@ -27,6 +27,8 @@ echo .env << "USERNAME={your codeship email}\nPASSWORD={your codeship password}"
 
 bundle i
 
+bundle exec rake db:setup
+
 bundle exec ruby start.rb
 ```
 

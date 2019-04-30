@@ -1,3 +1,3 @@
 require "dotenv/load"
-require "./services/scheduler.rb"
+require "./app/services/scheduler.rb"
 Scheduler.every("15s")

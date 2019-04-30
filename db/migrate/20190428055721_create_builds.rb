@@ -4,6 +4,7 @@ class CreateBuilds < ActiveRecord::Migration[5.1]
       t.string :uuid, null: false
       t.string :project_uuid, null: false
       t.string :project_id, null: false
+      t.string :project_name, null: false
       t.string :organization_uuid, null: false
       t.string :ref, null: false
       t.string :commit_sha, null: false
