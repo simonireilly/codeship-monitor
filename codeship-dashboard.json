@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_CODESHIP_DATA",
-      "label": "Codeship Data",
+      "name": "DS_DATABASE",
+      "label": "Database",
       "description": "",
       "type": "datasource",
       "pluginId": "postgres",
@@ -53,11 +53,11 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CODESHIP_DATA}",
+      "datasource": "${DS_DATABASE}",
       "fill": 1,
       "gridPos": {
-        "h": 21,
-        "w": 15,
+        "h": 11,
+        "w": 22,
         "x": 0,
         "y": 0
       },
@@ -143,13 +143,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CODESHIP_DATA}",
+      "datasource": "${DS_DATABASE}",
       "fill": 1,
       "gridPos": {
-        "h": 21,
-        "w": 9,
-        "x": 15,
-        "y": 0
+        "h": 8,
+        "w": 22,
+        "x": 0,
+        "y": 11
       },
       "id": 3,
       "legend": {
@@ -237,7 +237,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30d",
+    "from": "now-6M",
     "to": "now"
   },
   "timepicker": {
@@ -266,7 +266,7 @@
     ]
   },
   "timezone": "",
-  "title": "Codeship Monitor Copy",
+  "title": "Codeship Monitor",
   "uid": "m_csfBkZk",
-  "version": 1
+  "version": 2
 }
