@@ -3,7 +3,7 @@ services:
 
   web:
     build: .
-    command: bash -c 'bundle install && bundle exec rake db:setup && bundle exec ruby start.rb'
+    command: bash -c 'bundle install && bundle exec rake db:create && bundle exec rake db:migrate && bundle exec ruby start.rb'
     volumes:
       - .:/myapp
     env_file:
@@ -22,3 +22,7 @@ services:
     image: grafana/grafana:5.1.0
     ports:
       - 3000:3000
+    depends_on:
+     - db
+    volumes:
+      - 'var/lib/grafana'

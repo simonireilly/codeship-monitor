@@ -26,10 +26,10 @@ module Codeship
         @projects ||= conn.get("v2/organizations/#{organization_uuid}/projects")
       end
 
-      def get_builds(organization_uuid, project_uuid)
+      def get_builds(organization_uuid, project_uuid, page_number = 1)
         conn = connection
         conn.authorization :bearer, access_token
-        conn.get("v2/organizations/#{organization_uuid}/projects/#{project_uuid}/builds")
+        conn.get("v2/organizations/#{organization_uuid}/projects/#{project_uuid}/builds?per_page=50&page=#{page_number}")
       end
 
       def access_token

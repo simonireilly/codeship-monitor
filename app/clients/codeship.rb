@@ -4,11 +4,11 @@ module Codeship
   require_relative "codeship/api"
   ENDPOINT = "https://api.codeship.com"
 
-  def self.call
+  def self.call(page_number: 1)
     build_data = []
     organizations.each do |organization|
       projects(organization["uuid"]).each do |project|
-        build_data << builds(organization["uuid"], project["uuid"])
+        build_data << builds(organization["uuid"], project["uuid"], page_number)
           .map { |build| build.merge({ "project_name": project["name"]}) }
       end
     end
@@ -23,7 +23,7 @@ module Codeship
     @projects ||= MultiJson.load(API.get_projects(organization_uuid).body).dig("projects")
   end
 
-  def self.builds(organization_uuid, project_uuid)
-    MultiJson.load(API.get_builds(organization_uuid, project_uuid).body).dig("builds")
+  def self.builds(organization_uuid, project_uuid, page_number)
+    MultiJson.load(API.get_builds(organization_uuid, project_uuid, page_number).body).dig("builds")
   end
 end
